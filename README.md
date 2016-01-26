@@ -1,4 +1,4 @@
-# ERP Famegum (protótipo em material design)
+# Trevor Admin (demo)
 
 # Usage
 
