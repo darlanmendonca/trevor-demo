@@ -1,0 +1,31 @@
+md-toolbar
+  .md-toolbar-tools
+    md-fab-trigger
+      button.btn-menu(menu-toogle)
+        i.zmdi.zmdi-menu
+        i.zmdi.zmdi-arrow-left
+    //- a.logotipo(ui-sref='admin.sites')
+      include ../../imgs/logotipo.svg
+    span(flex)
+    
+    md-menu.show-after-enter(md-position-mode="target-right target")
+      md-button.md-icon-button(aria-label='Options', ng-click='$mdOpenMenu($event)'): i.zmdi.zmdi-more-vert
+      md-menu-content(width='2')
+        md-menu-item(ng-repeat='(locale, name) in admin.locales'): md-button(translate-button='{{locale}}') {{name}}
+
+aside.menu
+  ul.main-menu
+    li(ui-sref-active='active')
+      md-button(ui-sref='admin.sites', menu-toogle)
+        i.zmdi.zmdi-desktop-windows
+        |  Sites
+    li(ui-sref-active='active')
+      md-button(ui-sref='admin.users', menu-toogle)
+        i.zmdi.zmdi-accounts-list
+        |  {{ 'menu.users' | translate }}
+    li
+      md-button(ui-sref='logout', menu-toogle)
+        i.zmdi.zmdi-power
+        |  {{ 'menu.logout' | translate }}
+
+div(ui-view='content')

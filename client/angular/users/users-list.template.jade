@@ -1,0 +1,14 @@
+.container
+  .card
+    .card-header
+      h2
+        | {{ 'users.list' | translate }}
+        small {{ 'users.list.description' | translate }}
+
+    .list
+      .title(layout='row')
+        div(flex-gt-sm='25') {{ 'common.name' | translate }}
+        div(flex) Email
+      .item(ng-repeat='user in users.list', ui-sref='admin.users.edit({id: user.id})', layout='row')
+        div(flex-gt-sm='25') {{ :: user.firstname }} {{ :: user.lastname }}
+        div(flex) {{ :: user.email }}

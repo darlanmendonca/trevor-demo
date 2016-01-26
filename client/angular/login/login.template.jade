@@ -1,0 +1,31 @@
+.login.row(layout='row', layout-align='center center')
+  md-menu.show-after-enter(md-position-mode="target-right target")
+    md-button.md-icon-button(aria-label='Options', ng-click='$mdOpenMenu($event)'): i.zmdi.zmdi-more-vert
+    md-menu-content(width='2')
+      md-menu-item(ng-repeat='(locale, name) in login.locales'): md-button(translate-button='{{locale}}') {{name}}
+
+
+  md-card(flex-sm='90', flex-md='60', flex-gt-md='50')
+    
+    img.logo(src='/imgs/logo.svg', draggable='false')
+    
+    form(name='form', ng-submit='form.$valid && login.auth()', novalidate, spellcheck='false')
+      md-input-container.md-icon-float.md-block.md-has-icon(no-ink)
+        label Email
+        md-icon.zmdi.zmdi-email
+        input(type='email', required, name='email', ng-model='login.user.email', autocomplete='off')
+        small.help-block(ng-messages='form.email.$touched && form.email.$error')
+          span(ng-message='email') {{ 'common.invalid-address' | translate }}
+          span(ng-message='required') {{ 'common.required-field' | translate }}
+
+      md-input-container.md-icon-float.md-block.md-has-icon
+        label {{ 'login.password' | translate }}
+        md-icon.zmdi.zmdi-lock
+        input(type='password', required, name='password', ng-model='login.user.password', autocomplete='off')
+        small.help-block(ng-messages='form.password.$touched && form.password.$error')
+          span(ng-message='required') {{ 'common.required-field' | translate }}
+
+      md-button.md-fab.md-primary(aria-label='{{ "login.submit" | translate }}', type='submit'): i.zmdi.zmdi-arrow-forward
+
+  footer.text-right.show-after-enter
+    span ® Trevor - {{ 'common.allrights' | translate }} {{ :: login.today | date: 'yyyy' }}

@@ -1,0 +1,69 @@
+.container
+  .card
+    .card-header(layout='row')
+      h2(flex)
+        | {{ 'sites.list' | translate }}
+        small {{ 'sites.list.description' | translate }}
+
+      .actions(layout='row')
+        md-button.md-icon-button
+          i.zmdi.zmdi-search 
+          md-tooltip(md-direction='top') Search
+        md-menu.show-after-enter(md-position-mode="target-right target")
+          md-button.md-icon-button(ng-click='$mdOpenMenu($event)')
+            i.zmdi.zmdi-sort
+            md-tooltip(md-direction='top') Sort
+          md-menu-content(width='2')
+            md-menu-item: md-button(aria-label='Last Modified') Last Modified
+            md-menu-item: md-button(aria-label='Last Edited') Last Edited
+            md-menu-item: md-button(aria-label='Name') Name
+            md-menu-item: md-button(aria-label='Phone') Phone
+        md-button.md-icon-button(ui-sref='admin.sites.create')
+          i.zmdi.zmdi-account-add 
+          md-tooltip(md-direction='top') Create site
+    
+      //- ul.actions
+          li: a.search-toogle: i.zmdi.zmdi-search
+          li
+            md-menu.show-after-enter(md-position-mode="target-right target")
+              a(ng-click='$mdOpenMenu($event)'): i.zmdi.zmdi-sort
+              md-menu-content(width='2')
+                md-menu-item: md-button(aria-label='Last Modified') Last Modified
+                md-menu-item: md-button(aria-label='Last Edited') Last Edited
+                md-menu-item: md-button(aria-label='Name') Name
+                md-menu-item: md-button(aria-label='Phone') Phone
+          li: a(ui-sref='admin.sites.create', title='New Site'): i.zmdi.zmdi-desktop-windows
+
+      form.search.hidden(name='search', ng-submit='search.$valid && sites.search()')
+        md-input-container(md-no-float)
+          input(type='text', required, name='value', ng-model='sites.searchValue', autocomplete='off', placeholder='{{ "common.search" | translate }}')
+          md-icon.zmdi.zmdi-close-circle.search-toogle
+
+    .list(layout='column')
+      div.title {{ 'common.name' | translate }}
+      div.item.two-lines(ng-repeat='site in sites.list', ui-sref='admin.sites.edit({id: site.id})', layout='row') 
+        div(flex)
+          | {{ site.name }}
+          a(ng-href='http://{{site.url}}') {{ site.url }}
+        div: md-button.md-icon-button(aria-label='Users'): i.zmdi.zmdi-accounts-alt
+          md-tooltip(md-direction='top') Users
+        div: md-button.md-icon-button(aria-label='Newsletter'): i.zmdi.zmdi-email
+          md-tooltip(md-direction='top') Newsletter
+        div: md-button.md-icon-button(aria-label='Tagmanager'): i.zmdi.zmdi-label
+          md-tooltip(md-direction='top') Tags
+        div: md-button.md-icon-button(aria-label='Sponsors'): i.zmdi.zmdi-money
+          md-tooltip(md-direction='top') Sponsors
+        div: md-menu.show-after-enter(md-position-mode="target-right target")
+          md-button.md-icon-button(aria-label='Options', ng-click='$mdOpenMenu($event)'): i.zmdi.zmdi-more-vert
+            md-tooltip(md-direction='top') Others
+          md-menu-content(width='4')
+            md-menu-item: md-button
+              i.zmdi.zmdi-view-dashboard 
+              | Layouts
+            md-menu-item: md-button
+              i.zmdi.zmdi-shopping-cart 
+              | Ecommerce
+            md-menu-item: md-button
+              i.zmdi.zmdi-github-alt 
+              | Code
+

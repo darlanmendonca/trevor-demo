@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+
+./node_modules/karma/bin/karma start karma.js
+

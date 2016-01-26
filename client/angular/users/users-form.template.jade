@@ -1,0 +1,6 @@
+.container
+  .card
+    .card-header
+      h2
+        | {{ (users.user ? 'common.edit' : 'common.create') | translate }}
+        small {{ 'users.list.description' | translate }}

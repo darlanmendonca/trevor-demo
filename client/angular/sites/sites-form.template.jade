@@ -1,0 +1,118 @@
+.container
+  .card
+    .card-header
+      h2
+        | {{ (sites.site ? 'common.edit' : 'common.create') | translate }}
+        small {{ 'sites.list.description' | translate }}
+
+    form(name='form', ng-submit='form.$valid && sites.save()', novalidate, spellcheck='false')
+      md-tabs(md-dynamic-height)
+        md-tab.md-primary(label='Main')
+          div(layout-gt-sm='row')
+            md-input-container(flex)
+              label {{ 'common.name' |translate }}
+              input(type='text', required, name='name', ng-model='sites.site.name', autocomplete='off')
+              small.help-block(ng-messages='form.name.$touched && form.name.$error')
+                span(ng-message='required') {{ 'common.required-field' | translate }}
+
+            md-input-container(flex)
+              label Slug
+              input(type='text', required, name='slug', ng-model='sites.site.slug', autocomplete='off')
+              small.help-block(ng-messages='form.slug.$touched && form.slug.$error')
+                span(ng-message='required') {{ 'common.required-field' | translate }}
+
+            md-input-container(flex)
+              label {{ 'sites.acronym' | translate }}
+              input(type='text', required, name='acronym', ng-model='sites.site.acronym', autocomplete='off')
+              small.help-block(ng-messages='form.acronym.$touched && form.acronym.$error')
+                span(ng-message='required') {{ 'common.required-field' | translate }}
+          
+          div(layout-gt-sm='row')
+            md-input-container(flex)
+              label Url
+              input(type='text', required, name='url', ng-model='sites.site.url', autocomplete='off')
+              small.help-block(ng-messages='form.url.$touched && form.url.$error')
+                //- span(ng-message='url') {{ 'common.invalid-address' | translate }}
+                span(ng-message='required') {{ 'common.required-field' | translate }}
+
+            md-input-container(flex)
+              label CDN
+              input(type='url', required, name='cdn', ng-model='sites.site.cdn', autocomplete='off')
+              small.help-block(ng-messages='form.cdn.$touched && form.cdn.$error')
+                span(ng-message='required') {{ 'common.required-field' | translate }}
+            span(flex)
+
+          div(layout-gt-sm='row')
+            md-input-container(flex)
+              label {{ 'common.language' | translate }}
+              md-select(ng-model='sites.site.language')
+                md-option(ng-repeat='(locale, name) in sites.locales', value='{{ :: locale }}') {{ name | translate }}
+
+            md-input-container(flex)
+              label {{ 'common.profile' | translate }}
+              md-select(ng-model='sites.site.profile')
+                md-option(value='reseller') {{ 'sites.reseller' | translate }}
+                md-option(value='publisher') {{ 'sites.publisher' | translate }}
+                md-option(value='enterprise') {{ 'sites.enterprise' | translate }}
+            span(flex)
+
+          div
+            md-input-container.md-block
+              label {{ 'sites.description' | translate }}
+              textarea(ng-model='sites.site.description')
+            
+            md-input-container(md-no-float)
+              md-chips.md-block(ng-model='sites.site.keywords', placeholder='{{ "sites.keywords" | translate }}', delete-button-label='{{ "sites.remove" | translate }}', delete-hint='{{ "sites.pressDeleteToRemove" | translate }}', secondary-placeholder='Keywords')
+        
+        md-tab(label='Social')
+          h4 Facebook
+          div(layout-gt-sm='row')
+            md-input-container(flex-gt-sm='20')
+              label {{ 'sites.secret' |translate }}
+              input(type='text', name='facebookSecret', ng-model='sites.site.facebook.secret', autocomplete='off')
+
+            md-input-container(flex-gt-sm='20')
+              label ID
+              input(type='text', name='facebookAppId', ng-model='sites.site.facebook.appId', autocomplete='off')
+
+          h4 Google+
+          div(layout-gt-sm='row')
+            md-input-container(flex-gt-sm='20')
+              label {{ 'sites.secret' |translate }}
+              input(type='text', name='googleSecret', ng-model='sites.site.google.secret', autocomplete='off')
+
+            md-input-container(flex-gt-sm='20')
+              label ID
+              input(type='text', name='googleAppId', ng-model='sites.site.google.appId', autocomplete='off')
+
+          h4 Links
+          div(layout-gt-sm='row')
+            md-input-container.md-icon-float(flex-gt-sm='20', no-ink)
+              label Facebook
+              md-icon.zmdi.zmdi-facebook
+              input(type='text', name='facebook', ng-model='sites.site.social.facebook', autocomplete='off')
+
+            md-input-container.md-icon-float(flex-gt-sm='20')
+              label Youtube
+              md-icon.zmdi.zmdi-youtube
+              input(type='text', name='youtube', ng-model='sites.site.social.youtube', autocomplete='off')
+
+            md-input-container.md-icon-float(flex-gt-sm='20')
+              label Twitter
+              md-icon.zmdi.zmdi-twitter
+              input(type='text', name='googleSecret', ng-model='sites.site.social.twitter', autocomplete='off')
+          
+          div(layout-gt-sm='row')
+            md-input-container.md-icon-float(flex-gt-sm='20')
+              label Instagram
+              md-icon.zmdi.zmdi-instagram
+              input(type='text', name='googleSecret', ng-model='sites.site.social.instagram', autocomplete='off')
+
+            md-input-container.md-icon-float(flex-gt-sm='20')
+              label Pinterest
+              md-icon.zmdi.zmdi-pinterest
+              input(type='text', name='googleSecret', ng-model='sites.site.social.pinterest', autocomplete='off')
+
+      div(layout='row', layout-align='end center')
+        md-button(ui-sref='admin.sites') Cancel
+        md-button.md-primary.md-raised Save

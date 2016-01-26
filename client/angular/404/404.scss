@@ -1,0 +1,63 @@
+.page-not-found {
+  min-height: 450px;
+  height: 100vh;
+  overflow: hidden;
+
+  h1, h3 {
+    color: white;
+    position: relative;
+    text-align: center;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 10em;
+    font-weight: 100;
+    margin-top: 1em;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $primary-color;
+    animation: enterDetail .6s cubic-bezier(.34,.22,.38,.94);
+  }
+
+  .md-button.md-fab {
+    font-size: 28px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    animation: enterButton .2s .6s cubic-bezier(.17,.67,.58,1.23) backwards;
+  }
+
+  .show-after-enter {
+    animation: showAfterEnter .8s .5s ease backwards;
+  }
+}
+
+@keyframes enterButton {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 150%, 0);
+  }
+
+  60% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
