@@ -7,7 +7,7 @@ let inject = require('gulp-inject');
 let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
 let sourcemaps = require('gulp-sourcemaps');
-let gulpConfig = require('../gulp.config.js');
+let config = require('../config.js');
 
 let injectTransform = {
   starttag: '/* inject:imports */',
@@ -29,14 +29,14 @@ let sassConfig = {
 
 gulp.task('styles', function() {
   gulp
-    .src(gulpConfig.styles.src)
+    .src(config.styles.src)
     .pipe(inject(gulp.src(dependencies, injectConfig), injectTransform))
     .pipe(sourcemaps.init())
     .pipe(sass(sassConfig).on('error', onError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write({sourceRoot: '/client/angular'}))
-    .pipe(gulp.dest(gulpConfig.styles.dest))
-    .pipe(gulpConfig.browserSync.stream());
+    .pipe(gulp.dest(config.styles.dest))
+    .pipe(config.browserSync.stream());
 });
 
 function onError (err) {

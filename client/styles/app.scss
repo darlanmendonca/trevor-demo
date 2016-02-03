@@ -1,32 +1,16 @@
 /* inject:imports */
 /* endinject */
 
-html, body {
-   height: initial;
-  -webkit-font-smoothing: antialiased;
-  font-family: helvetica, sans-serif;
-  background-color: #F9F9F9;
-}
-
-img {
-  max-width: 100%;
-}
-
-$primary-color: #FF5722;
-$primary-color-hue-1: #FF8A65;
-$primary-color-hue-3: #FF9E80;
+$primary-color: rgb(233,30,99);
+$primary-color-hue-1: #F06292;
+$primary-color-hue-3: #FF80AB;
 $hidden-color: silver;
 $white-color: #fff;
 $md-max-width: 599px;
 
-@import 'components/header';
-@import 'components/forms';
-@import 'components/menu';
-@import 'components/views';
-@import 'components/grid';
-@import 'components/card';
-@import 'components/list';
-@import '../angular/login/login';
-@import '../angular/search/search';
+.md-primary-background {
+  background: $primary-color;
+}
+
 @import '../angular/loading/loading';
 @import '../angular/404/404';

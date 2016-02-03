@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .controller('LoginController', LoginController);
 
 function LoginController (TranslateFactory, $state, AuthFactory) {

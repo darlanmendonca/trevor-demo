@@ -1,0 +1,3 @@
+[submodule "bower_components/trevor"]
+	path = bower_components/trevor
+	url = https://github.com/darlanmendonca/trevor

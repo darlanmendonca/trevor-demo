@@ -1,7 +1,7 @@
 'use strict';
 
 let gulp = require('gulp');
-let gulpConfig = require('../gulp.config.js');
+let config = require('../config.js');
 let plumber = require('gulp-plumber');
 let sourcemaps = require('gulp-sourcemaps');
 let ngAnnotate = require('gulp-ng-annotate');
@@ -10,8 +10,8 @@ let concat = require('gulp-concat');
 let uglify = require('gulp-uglify');
 
 gulp.task('scripts', function() {
-  gulp
-    .src(gulpConfig.scripts.src)
+  return gulp
+    .src(config.scripts.src)
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
@@ -19,7 +19,7 @@ gulp.task('scripts', function() {
     .pipe(concat('app.js'))
     .pipe(uglify({mangle: false}))
     .pipe(sourcemaps.write({sourceRoot: '/client/angular'}))
-    .pipe(gulp.dest(gulpConfig.scripts.dest));
+    .pipe(gulp.dest(config.scripts.dest));
 });
 
 function onError(err) {

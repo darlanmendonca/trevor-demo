@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-	.module('demo')
+	.module('trevor-demo')
 	.run(authRun);
 
 function authRun ($rootScope, AuthFactory, $state) {

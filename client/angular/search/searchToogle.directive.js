@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .directive('searchToogle', SearchToogleDirective);
 
 function SearchToogleDirective() {

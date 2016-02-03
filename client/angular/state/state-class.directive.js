@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .directive('stateClass', StateClassDirective);
 
 function StateClassDirective($state) {

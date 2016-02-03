@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .factory('AuthFactory', AuthFactory);
 
 function AuthFactory($auth) {

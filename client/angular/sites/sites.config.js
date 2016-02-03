@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-	.module('demo')
+	.module('trevor-demo')
 	.config(sitesConfig);
 
 function sitesConfig($stateProvider) {

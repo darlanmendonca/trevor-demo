@@ -2,12 +2,12 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .config(materialConfig);
 
 function materialConfig ($mdThemingProvider) {
 	$mdThemingProvider.theme('default')
-    .primaryPalette('deep-orange')
-    .accentPalette('green')
+    .primaryPalette('pink')
+    .accentPalette('pink')
     .warnPalette('red');
 }

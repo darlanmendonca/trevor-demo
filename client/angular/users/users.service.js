@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .factory('UsersService', UsersService);
 
 function UsersService($resource, API) {

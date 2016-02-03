@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-	.module('demo')
+	.module('trevor-demo')
 	.controller('SitesController', SitesController);
 
 function SitesController (sites, site, TranslateFactory) {

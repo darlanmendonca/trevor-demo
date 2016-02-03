@@ -6,7 +6,7 @@
         small {{ 'sites.list.description' | translate }}
 
       .actions(layout='row')
-        md-button.md-icon-button
+        md-button.md-icon-button(search-toogle)
           i.zmdi.zmdi-search 
           md-tooltip(md-direction='top') Search
         md-menu.show-after-enter(md-position-mode="target-right target")
@@ -21,18 +21,6 @@
         md-button.md-icon-button(ui-sref='admin.sites.create')
           i.zmdi.zmdi-account-add 
           md-tooltip(md-direction='top') Create site
-    
-      //- ul.actions
-          li: a.search-toogle: i.zmdi.zmdi-search
-          li
-            md-menu.show-after-enter(md-position-mode="target-right target")
-              a(ng-click='$mdOpenMenu($event)'): i.zmdi.zmdi-sort
-              md-menu-content(width='2')
-                md-menu-item: md-button(aria-label='Last Modified') Last Modified
-                md-menu-item: md-button(aria-label='Last Edited') Last Edited
-                md-menu-item: md-button(aria-label='Name') Name
-                md-menu-item: md-button(aria-label='Phone') Phone
-          li: a(ui-sref='admin.sites.create', title='New Site'): i.zmdi.zmdi-desktop-windows
 
       form.search.hidden(name='search', ng-submit='search.$valid && sites.search()')
         md-input-container(md-no-float)
@@ -46,24 +34,24 @@
           | {{ site.name }}
           a(ng-href='http://{{site.url}}') {{ site.url }}
         div: md-button.md-icon-button(aria-label='Users'): i.zmdi.zmdi-accounts-alt
-          md-tooltip(md-direction='top') Users
+          md-tooltip(md-direction='top') Players
         div: md-button.md-icon-button(aria-label='Newsletter'): i.zmdi.zmdi-email
           md-tooltip(md-direction='top') Newsletter
         div: md-button.md-icon-button(aria-label='Tagmanager'): i.zmdi.zmdi-label
           md-tooltip(md-direction='top') Tags
-        div: md-button.md-icon-button(aria-label='Sponsors'): i.zmdi.zmdi-money
-          md-tooltip(md-direction='top') Sponsors
         div: md-menu.show-after-enter(md-position-mode="target-right target")
           md-button.md-icon-button(aria-label='Options', ng-click='$mdOpenMenu($event)'): i.zmdi.zmdi-more-vert
             md-tooltip(md-direction='top') Others
           md-menu-content(width='4')
             md-menu-item: md-button
-              i.zmdi.zmdi-view-dashboard 
-              | Layouts
+              i.zmdi.zmdi-money 
+              | Credits
             md-menu-item: md-button
               i.zmdi.zmdi-shopping-cart 
-              | Ecommerce
+              | Products
             md-menu-item: md-button
-              i.zmdi.zmdi-github-alt 
-              | Code
-
+              i.zmdi.zmdi-cloud-upload 
+              | Upload
+            md-menu-item: md-button
+              i.zmdi.zmdi-code 
+              | Scripts

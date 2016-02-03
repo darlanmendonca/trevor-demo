@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = {
+let config = {
 	lintScripts: [
 		'./gulpfile.js',
-		'./gulp.config.js',
+		'./config.js',
 		'./client/angular/**/*.js'
 	],
 	browserSync: require('browser-sync').create(),
@@ -44,3 +44,5 @@ module.exports = {
 		dest: './public/imgs/'
 	}
 };
+
+module.exports = config;

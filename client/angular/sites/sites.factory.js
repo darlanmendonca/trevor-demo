@@ -2,55 +2,65 @@
 'use strict';
 
 angular
-  .module('demo')
+  .module('trevor-demo')
   .factory('SitesFactory', SitesFactory);
 
 function SitesFactory(SitesService) {
   let factory = {};
   let sites = [
     {
-      name: 'Marimoon',
-      slug: 'marimoon',
-      url: 'marimoon.com.br',
+      name: 'GTA V',
+      slug: 'v',
+      url: 'gtav.com',
       id: '1',
+      description: `Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum.`, /* jshint ignore:line */
+      keywords: [
+        'trevor',
+        'michael',
+        'franklyn'
+      ]
+    },
+    {
+      name: 'GTA San Andreas',
+      slug: 'sanandreas',
+      url: 'gtasanandreas.com.br',
+      id: '2',
       description: 'Lorem ipsum dolor sit amet',
       keywords: [
-        'marimoon',
-        'lifestyle',
-        'mtv'
+        'cj',
+        'big smoke'
       ]
     },
     {
-      name: 'All You Need is Rock',
-      slug: 'aynirock',
-      url: 'aynirock.com.br',
-      id: '2',
-      keywords: [
-        'rock',
-        'heavy',
-        'metal'
-      ]
-    },
-    {
-      name: 'Dra. Ritz',
-      slug: 'draritz',
-      url: 'draritz.com.br',
+      name: 'GTA Vice City',
+      slug: 'vicecity',
+      url: 'gtavicecity.com',
       id: '3',
-      keywords: []
+      description: 'Lorem ipsum dolor sit amet',
+      keywords: [
+        'beach'
+      ]
     },
     {
-      name: 'Fernanda Keulla',
-      slug: 'fernanda-keulla',
-      url: 'fernanda-keulla.com.br',
+      name: 'GTA III',
+      slug: 'iii',
+      url: 'gtaiii.com',
       id: '4',
-      keywords: []
+      description: 'Lorem ipsum dolor sit amet',
+      keywords: [
+        'jail',
+        'los santos'
+      ]
     },
     {
-      name: 'Guia da Pele',
-      slug: 'guia-da-pele',
-      url: 'guiadapele.com.br',
+      name: 'Grand Theft Auto',
+      slug: 'gta',
+      url: 'gta.com',
       id: '5',
-      keywords: []
+      description: 'Lorem ipsum dolor sit amet',
+      keywords: [
+        'classic'
+      ]
     }
   ];
 

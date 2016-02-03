@@ -1,10 +1,10 @@
 'use strict';
 
 let gulp = require('gulp');
-let gulpConfig = require('../gulp.config.js');
+let config = require('../config.js');
 
 gulp.task('images', function() {
   gulp
-    .src(gulpConfig.imgs.src)
-    .pipe(gulp.dest(gulpConfig.imgs.dest));
+    .src(config.imgs.src)
+    .pipe(gulp.dest(config.imgs.dest));
 });
